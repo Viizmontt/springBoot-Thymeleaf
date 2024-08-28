@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Categorias</title>
+    <th:block th:replace="components/head :: head"/>
+    <body>
+        <div th:replace="~{components/nav :: nav}"></div>
+
+        <div class="container-fluid my-4">
+            <h1>Lista de Categorias</h1>
+
+            <a th:href="@{/categories/create}" class="btn btn-primary">Agregar Nueva Categoria</a>
+
+            <!-- Mensaje de resultado -->
+            <div th:if="${message}" th:class="${color}" role="alert">
+                <span th:text="${message}"></span>
+            </div>
+
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="category : ${categories}">
+                        <td th:text="${category.id}"></td>
+                        <td th:text="${category.name}"></td>
+                        <td th:text="${category.description}"></td>
+                        <td>
+                            <a class="btn btn-info btn-sm" th:href="@{/categories/edit/{id}(id=${category.id})}">
+                                Editar
+                            </a>
+                            <a class="btn btn-danger btn-sm" th:href="@{/categories/delete/{id}(id=${category.id})}"
+                               onclick="return confirm('¿Está seguro de que desea eliminar esta categoria?');">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Include JS files -->
+        <script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/assets/vendor/php-email-form/validate.js}"></script>
+        <script th:src="@{/assets/vendor/aos/aos.js}"></script>
+        <script th:src="@{/assets/vendor/glightbox/js/glightbox.min.js}"></script>
+        <script th:src="@{/assets/vendor/purecounter/purecounter_vanilla.js}"></script>
+        <script th:src="@{/assets/vendor/swiper/swiper-bundle.min.js}"></script>
+        <script th:src="@{/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+        <script th:src="@{/assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+        <script th:src="@{/assets/js/main.js}"></script>
+    </body>
+</html>

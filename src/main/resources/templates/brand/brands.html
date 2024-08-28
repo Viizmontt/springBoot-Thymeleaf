@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Marcas</title>
+    <th:block th:replace="components/head :: head"/>
+</head>
+<body>
+    <div th:replace="~{components/nav :: nav}"></div>
+
+    <div class="container-fluid my-4">
+        <h1>Lista de Marcas</h1>
+
+        <a th:href="@{/brands/create}" class="btn btn-primary">Agregar Nueva Marca</a>
+
+        <!-- Mensaje de resultado -->
+        <div th:if="${message}" th:class="${color}" role="alert">
+            <span th:text="${message}"></span>
+        </div>
+
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="brand : ${brands}">
+                    <td th:text="${brand.id}"></td>
+                    <td th:text="${brand.name}"></td>
+                    <td th:text="${brand.description}"></td>
+                    <td>
+                        <a class="btn btn-info btn-sm" th:href="@{/brands/edit/{id}(id=${brand.id})}">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger btn-sm" th:href="@{/brands/delete/{id}(id=${brand.id})}"
+                           onclick="return confirm('¿Está seguro de que desea eliminar esta marca?');">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include JS files -->
+    <script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/assets/vendor/php-email-form/validate.js}"></script>
+    <script th:src="@{/assets/vendor/aos/aos.js}"></script>
+    <script th:src="@{/assets/vendor/glightbox/js/glightbox.min.js}"></script>
+    <script th:src="@{/assets/vendor/purecounter/purecounter_vanilla.js}"></script>
+    <script th:src="@{/assets/vendor/swiper/swiper-bundle.min.js}"></script>
+    <script th:src="@{/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+    <script th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>

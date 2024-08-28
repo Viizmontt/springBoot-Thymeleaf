@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Menu</title>
+    </head>
+    <body>
+        <!--
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"  th:href="@{/}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="brands">Marcas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="categories">Categorias</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        -->
+
+        <header id="header" class="header d-flex align-items-center sticky-top">
+            <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+                <a href="index.html" class="logo d-flex align-items-center me-auto">
+                    <h1 class="sitename">Ing Vizcarra</h1>
+                </a>
+
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a th:href="@{/}" class="active">Home<br></a></li>
+                        <li><a th:href="@{/brands}">Marcas</a></li>
+                        <li><a th:href="@{/categories}">Categorias</a></li>
+                        <li><a th:href="@{/products}">Productos</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+            </div>
+        </header>
+    </body>
+</html>
